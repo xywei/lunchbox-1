@@ -22,6 +22,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Create user hpc and use as default
 RUN groupadd -r hpc && useradd -r -m -d /home/hpc -g hpc hpc
 USER hpc
+WORKDIR /home/hpc
 
 ########################## RUN AS HPC ###########################
 
@@ -41,4 +42,3 @@ RUN $HOME/.spack/bin/spack clean
 
 # Define default command.
 CMD ["bash"]
-CMD ["cd $HOME"]
