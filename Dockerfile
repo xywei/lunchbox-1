@@ -33,8 +33,11 @@ RUN cd $HOME && git clone https://www.github.com/llnl/spack.git .spack
 RUN cd $HOME/.spack && git checkout develop
 
 # Environment Modules
-RUN $HOME/.spack/bin/spack install environment-modules
+RUN $HOME/.spack/bin/spack install environment-modules%gcc@7
 RUN $HOME/.spack/bin/spack module refresh -y
 
+# Remove all stage/temp directories
+RUN $HOME/.spack/bin/spack clean
+
 # Define default command.
-CMD ["bash"]
+CMD ["bash && cd $HOME"]
