@@ -40,4 +40,5 @@ RUN $HOME/.spack/bin/spack module refresh -y
 RUN $HOME/.spack/bin/spack clean
 
 # Define default command.
-CMD ["bash && cd $HOME"]
+CMD ["bash"]
+CMD ["cd $HOME"]
