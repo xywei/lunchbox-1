@@ -40,6 +40,10 @@ RUN $HOME/.spack/bin/spack module refresh -y
 # Show some configs of spack
 RUN cat $HOME/.spack/linux/compilers.yaml
 
+# Overwrite compiler configs
+RUN rm $HOME/.spack/linux/compilers.yaml
+COPY hpc/compilers.yaml /home/hpc/.spack/linux/compilers.yaml
+
 # Remove all stage/temp directories
 RUN $HOME/.spack/bin/spack clean
 
