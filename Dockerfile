@@ -37,6 +37,9 @@ RUN cd $HOME/.spack && git checkout develop
 RUN $HOME/.spack/bin/spack install environment-modules%gcc@7
 RUN $HOME/.spack/bin/spack module refresh -y
 
+# Show some configs of spack
+RUN cat $HOME/.spack/linux/compilers.yaml
+
 # Remove all stage/temp directories
 RUN $HOME/.spack/bin/spack clean
 
